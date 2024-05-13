@@ -115,3 +115,54 @@ Below is the detailed process flow for obtaining all data used in the Orlando Ca
   * ZORQSC_ZSCNNM56_4145_01A - Wide Open GR (Ad Hoc)
 * Using the below Alteryx workflow, scheduled to run daily at 12pm EST
   * "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Workflows\orlando_cart_test_automation.yxmd"
+
+
+## Data Preprocessing
+Much of the data is in valid format but there are some transformation steps
+
+### Retail Data
+
+**Labor Data**
+* Use user defined python function to convert dates
+* Filter to specific employee types: [FTSSR, PTSSR, SrFTSR]
+* Group data by the following columns: [Date, Store Name, ECC#, Employee Position]
+* Merge labor data with spark cases
+
+**Orlando Store List**
+* N/A
+
+**Spark Cases**
+* Use the following BW Query Characteristics: [Calendar Day, Customer - Sold To, Fiscal Year, Org - Plant, Operational Week]
+* Use the following BW Query Attributes: N/A
+* Use the following BW Query Key Figures: [Sales Cases]
+
+### CS&L Data
+
+**Driver Service Data**
+* Use user defined python functions to calculate decimal time version of ActualServiceTime
+* Transform data types
+* Filter to Orlando only stores
+* Filter out outliers (6 minutes => ActualServiceTime >= 2 hours
+
+**Waste Data**
+* Use the following BW Query Characteristics: [Calendar Day, Customer - Sold To, Fiscal Year, Product SKU, Org - Plant, Record - DSD Return Reason, Operational Week]
+* Use the following BW Query Attributes: [Product SKU -> Default Text, Record - DSD Return Reason -> Default Text]
+* Use the following BW Query Key Figures: [Unsaleables and Distressed]
+* *Filter to reason codes stated under data section*
+
+**Gross Revenue Data**
+* Use the following BW Query Characteristics: [Calendar Day, Fiscal Year, Org-Plant, Operational Week]
+* Use the following BW Query Attributes: [Org-Plant -> Location]
+* Use the following BW Query Key Figures: [Gross Revenue]
+
+**Paper & Shrink Wrap Data**
+* N/A
+
+**WUPH & DUPH**
+* N/A - provided by a workflow from a separate process
+
+**Operational Week Map**
+* **FINISH QUERY**
+
+
+
