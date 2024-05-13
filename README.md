@@ -71,7 +71,7 @@ Below is the detailed process flow for obtaining all data used in the Orlando Ca
 
 **Labor Data**
 * Rob Miglino pulls and stores these manual files in a shared drive listed below
-  *https://mydrive.mdlz.com/:f:/r/personal/robert_miglino_mdlz_com/Documents/CSL%20all%20EE?csf=1&web=1&e=XnKgvc
+  * https://mydrive.mdlz.com/:f:/r/personal/robert_miglino_mdlz_com/Documents/CSL%20all%20EE?csf=1&web=1&e=XnKgvc
 * These files are then concatented and transformed by the below python script which outputs a single file for dashboard use
   * "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Code\orlando_labor_analysis.ipynb"
 
