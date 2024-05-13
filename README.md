@@ -36,11 +36,11 @@ Below is a comprehensive list of data sources used in the project
 * This file contains YTD spark cases by store for the Orlando branch by day
 
 ### CS&L Data
-Driver Service Data - "\\kftusoktulfnp15\CL&S\Public\BPA\ERWTransition\DSD Service & Productivity\2024 Service Files"
+**Driver Service Data** - "\\kftusoktulfnp15\CL&S\Public\BPA\ERWTransition\DSD Service & Productivity\2024 Service Files"
 * These files detail store level service time for drivers, sourced from Descartes data provided by the routing team
 * These weekly files are concatenated in a python script and output to a sigle source file used by the dashboard - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\orlando_driver_service_ytd.csv"
 
-Waste Data - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\orlando_waste_ytd.csv"
+**Waste Data** - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\orlando_waste_ytd.csv"
 * This files provides daily waste dollars for the Olrando branch down to the store/sku level
 * Reason codes for waste dollars are restricted to:
   * 17 - Damaged in Delivery
@@ -50,17 +50,68 @@ Waste Data - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\orlando_was
   * 45 - DSD Unknown Damage
   * 46 - DSD All Other MFG Damage
 
-Gross Revenue Data - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\orlando_gr_ytd.csv"
+**Gross Revenue Data** - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\orlando_gr_ytd.csv"
 * This file provides daily gross revenue for the Orlando Branch
 
-Paper & Shrink Wrap Data - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\Paper and Shrink wrap 2023.xlsx"
+**Paper & Shrink Wrap Data** - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\Paper and Shrink wrap 2023.xlsx"
 * Manually provided file from the branch leads in Orlando that tracks paper & shrink wrap spend for the branch
 
-WUPH & DUPH - "\\kftusoktulfnp15\CL&S\Public\DSD Dashboard\DSD Dashboard Data.xlsx"
+**WUPH & DUPH** - "\\kftusoktulfnp15\CL&S\Public\DSD Dashboard\DSD Dashboard Data.xlsx"
 * This is the file that currently populates the iDSD DMS Dashboard and provides branch level WUPH & DUPH values
 * **Potential to swap to GCP data once validated**
 
-Operational Week Map - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\operational_week_map.csv"
-* Manually provided file for mapping dates to operational weeks within the dashboard
+**Operational Week Map** - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\operational_week_map.csv"
+* File for mapping dates to operational weeks within the dashboard
 
 
+## Data Aquisition
+Below is the detailed process flow for obtaining all data used in the Orlando Cart Test dashboard.
+
+### Retail Data
+
+**Labor Data**
+* Rob Miglino pulls and stores these manual files in a shared drive listed below
+  *https://mydrive.mdlz.com/:f:/r/personal/robert_miglino_mdlz_com/Documents/CSL%20all%20EE?csf=1&web=1&e=XnKgvc
+* These files are then concatented and transformed by the below python script which outputs a single file for dashboard use
+  * "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Code\orlando_labor_analysis.ipynb"
+
+**Orlando Store List**
+* This is a manually pulled file that can be retrieved from branch management
+
+**Spark Cases**
+* This data is pulled from the below BW Query
+  * ZORQSC_ZSCNNM56_4145_01A - Wide Open GR (Ad Hoc)
+* Using the below Alteryx workflow, scheduled to run daily at 12pm EST
+  * "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Workflows\orlando_cart_test_automation.yxmd"
+
+### CS&L Data
+
+**Driver Service Data**
+* BPA drive is updated weekly on Mondays with previous week's driver service file
+* These weekly files are then concatenated and transformed by the below python script which outputs a single file for dashboard use
+  * "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Code\orlando_driver_service.ipynb"
+
+**Waste Data**
+* This data is pulled from the below BW Query
+  * ZORQSC_ZSCNNM56_4145_01A - Wide Open GR (Ad Hoc)
+* Using the below Alteryx workflow, scheduled to run daily at 12pm EST
+  * "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Workflows\orlando_cart_test_automation.yxmd"
+
+**Gross Revenue Data** 
+* This data is pulled from the below BW Query
+  * ZORQSC_ZSCNNM56_4145_01A - Wide Open GR (Ad Hoc)
+* Using the below Alteryx workflow, scheduled to run daily at 12pm EST
+  * "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Workflows\orlando_cart_test_automation.yxmd"
+
+**Paper & Shrink Wrap Data**
+* This is a manually pulled file that can be retrieved from branch management
+
+**WUPH & DUPH**
+* This file is updated daily by the iDSD DMS Automation workflow. It is simply a reference file that is part of another process.
+* **Use of GCP Data under investigation**
+
+**Operational Week Map**
+* This data is pulled from the below BW Query
+  * ZORQSC_ZSCNNM56_4145_01A - Wide Open GR (Ad Hoc)
+* Using the below Alteryx workflow, scheduled to run daily at 12pm EST
+  * "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Workflows\orlando_cart_test_automation.yxmd"
