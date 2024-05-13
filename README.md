@@ -25,14 +25,14 @@ This project was built in PowerBI with the help of Python scripts & Alteryx work
 Below is a comprehensive list of data sources used in the project
 
 ### Retail Data
-Labor Data - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\Labor Data"
+**Labor Data** - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\Labor Data"
 * These files include manually adjusted retail in store service hours split out by employee type
 * This data must be manually moved from Rob Miglino into the appropriate alteryx drive folder due to accuracy issues with GCP
 
-Orlando Store List - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\Store List_M4_2024.xlsx"
+**Orlando Store List** - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\Store List_M4_2024.xlsx"
 * Contains up to date, active store list for the Orlando branch
 
-Spark Cases - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\orlando_spark_cases.csv"
+**Spark Cases** - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Data\orlando_spark_cases.csv"
 * This file contains YTD spark cases by store for the Orlando branch by day
 
 ### CS&L Data
