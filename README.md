@@ -162,7 +162,24 @@ Much of the data is in valid format but there are some transformation steps
 * N/A - provided by a workflow from a separate process
 
 **Operational Week Map**
-* **FINISH QUERY**
+* Use the following BW Query Characteristics: [Calendar Day, Operational Week]
+* Use the following BW Query Attributes: N/A
+* Use the following BW Query Key Figures: [ANY]
+
+## Code Structure
+All code for this project is written in Python within two jupyter notebooks.
+
+Retail Labor Data Pipeline - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Code\orlando_labor_analysis.ipynb"
+* This notebook handles stacking the weekly adjusted labor files, transforming the data into a usable structure. The output is a single file that feeds the dashboard information related to the Retail CPH KPI.
+
+Driver Service Data Pipeline - "\\mznapwapalt002\alteryx\NA_BIS\Orlando Cart Test\Code\orlando_driver_service.ipynb"
+* This notebook handles stacking the weekly driver service files, transforming the data into a usable structure. The output is a single file that feeds the dashboard information related to the Driver Service Time KPI.
+
+
+## Dashbord Preview
+
+
+
 
 
 
