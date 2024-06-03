@@ -25,4 +25,9 @@ Data collection for these metrics is conducted either daily or weekly depending 
 * Branch Shrink Wrap & Paper Spend - Ad hoc, provided by branch management
 * Retail CPH - Weekly, using BW queries to pull spark cases and a weekly labor file provided by Rob Miglino
 
+### Data Assumptions
+* Outliers/bad data are filtered out prior to being ingested into the dashboard
+* The 10 weeks leading up to the cart transition will be used for pallet baseline data to reduce possibility of confounding variables
+  * There will be a 2 week learning curve buffer before cart data will be tracked
+* All data sources will remain constant unless directed by project management team to update
 
