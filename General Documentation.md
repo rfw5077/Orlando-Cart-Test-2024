@@ -17,4 +17,12 @@ There will be a collection of 10 weeks of pallet data, paired with 10 weeks of c
  * Retail CPH - retail cases per hour
 
 ## The Data
-Data collection for these metrics is conducted either daily or weekly depending on each KPI
+Data collection for these metrics is conducted either daily or weekly depending on each KPI:
+* WUPH/DUPH - Daily, currently updated using the iDSD DMS Tableau backend file
+  * IMPORTANT - GCP validation currently underway for these metrics. The data source could be switched midway through the test.
+* Driver Service Time - Weekly, using the routing team's weekly service files
+* Branch Waste - Daily, using BW queries to pull data from SAP
+* Branch Shrink Wrap & Paper Spend - Ad hoc, provided by branch management
+* Retail CPH - Weekly, using BW queries to pull spark cases and a weekly labor file provided by Rob Miglino
+
+
